@@ -1,37 +1,27 @@
-/*
-const person: {
-  name: string;
-  age: number;
-  sports: string[];
-  role: [number, string];
-} = {
-  name: "georgio",
-  age: 30,
-  sports: ["tennis", "soccer"],
-  role: [2, 'author']
-};
-*/
-
-// const ADMIN = 0;
-// const READ_ONLY = 1;
-// const AUTHOR = 2;
-
-enum Role { ADMIN, READ_ONLY, AUTHOR};
-
-const person = {
-  name: "georgio",
-  age: 30,
-  sports: ["tennis", "soccer"],
-  role: Role.ADMIN
-};
-
-let vacations: any[];
-vacations = ['nice', 'amazing'];
-
-for (const sport of person.sports) {
-  console.log(sport.toUpperCase());
+function add(n1: number, n2: number){
+  return n1 + n2;
 }
 
-if (person.role === Role.ADMIN) {
-  console.log("is admin");
+function printResult(num: number): void {
+  console.log('Result: ' + num);
 }
+
+function addtionalHandler(n1: number, n2: number, sum: (num: number) => void) {
+  const result = n1 + n2;
+  sum(result);
+}
+
+printResult(add(5, 12));
+
+let combineValues: (param1: number, param2: number) => number;
+let resultValues: (param3: number) => void;
+
+combineValues = add;
+resultValues = printResult;
+
+console.log(combineValues(3, 78));
+resultValues(combineValues(45, 78));
+
+addtionalHandler(30000, 20, (result) => {
+  console.log(result);
+});
