@@ -9,13 +9,3 @@ let resultValues: (param3: number) => number;
 addtionalHandler(30000, 20, (result) => {
   console.log(result);
 });
-
-const button = document.querySelector('button');
-
-if (button) {
-  button.addEventListener('click', () => {
-    console.log("clicked");
-  });
-}
-
-const map = new Map();
